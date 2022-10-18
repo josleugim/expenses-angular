@@ -14,4 +14,8 @@ export class CategoryService {
   get(): Observable<ICategory[]> {
     return this.http.get<ICategory[]>(`${environment.API}/category`);
   }
+
+  post(categoryData: ICategory): Observable<any> {
+    return this.http.post<any>(`${environment.API}/category`, categoryData);
+  }
 }

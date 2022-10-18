@@ -1,5 +1,28 @@
 <section>
-  <h3>Categorías</h3>
+  <h3>Categoría</h3>
+  <div>
+    <h4>Crear categoría</h4>
+    <form [formGroup]="categoryForm" (submit)="onSubmit()">
+      <div>
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput formControlName="name" name="name">
+        </mat-form-field>
+        <div class="alert">
+          <p *ngIf="name.touched && name.errors?.['required']">Campo obligatorio</p>
+          <p *ngIf="name.touched && name.errors?.['pattern']">Solo letras</p>
+        </div>
+      </div>
+      <div>
+        <button
+          color="primary"
+          class="mat-button"
+          type="submit"
+          [disabled]="!categoryForm.valid"
+        >Crear</button>
+      </div>
+    </form>
+  </div>
   <div *ngFor="let category of categories">
     <label>{{category.name}}</label>
   </div>

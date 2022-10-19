@@ -18,4 +18,12 @@ export class CategoryService {
   post(categoryData: ICategory): Observable<any> {
     return this.http.post<any>(`${environment.API}/category`, categoryData);
   }
+
+  modify(categoryData: ICategory): Observable<ICategory> {
+    return this.http.post<ICategory>(`${environment.API}/category`, categoryData);
+  }
+
+  deleteById(id: number): Observable<any> {
+    return this.http.delete<any>(`${environment.API}/category/${id}`);
+  }
 }

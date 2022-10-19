@@ -43,4 +43,10 @@ export class CategoryComponent implements OnInit {
       this.categories = data;
     })
   }
+
+  delete(id: number): void {
+    this.categoryService.deleteById(id).subscribe(response => {
+      this.getCategories();
+    })
+  }
 }
